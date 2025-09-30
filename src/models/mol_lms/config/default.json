@@ -1,0 +1,27 @@
+{
+    "gan_operators":[
+        {
+            "model_directory": "mossaic-candle/adaptive-lm-molecules",
+            "tokenizer_directory": "mossaic-candle/adaptive-lm-molecules",
+            "tokenizer_type": "bert",
+            "device": 0
+        }
+    ],
+    "scoring_operator":{
+        "scoring_names": [
+            "synth",
+            "drug",
+            "sol",
+            "number"
+        ],
+        "selection_names":[
+            "synth",
+            "drug"
+        ],
+        "scoring_parameters":{
+            "sa_model":"./data/SA_score.pkl.gz"
+        },
+        "data_column_name":"smiles",
+        "fitness_column_name":"fitness"
+    }
+}

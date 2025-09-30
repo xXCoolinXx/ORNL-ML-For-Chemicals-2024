@@ -1,0 +1,67 @@
+{
+    "Verbosity": {
+        "level": 2
+    },
+    "NeuralNetwork": {
+        "Profile": {"enable": 0},
+        "Architecture": {
+            "model_type": "DimeNet",
+            "radius": 7,
+            "periodic_boundary_conditions": false,
+            "hidden_dim": 140,
+            "max_neighbours": 5,
+            "num_gaussians": 32,
+            "num_filters": 64,
+            "envelope_exponent": 5,
+            "int_emb_size": 64,
+            "basis_emb_size": 8,
+            "out_emb_size": 128,
+            "num_after_skip": 2,
+            "num_before_skip": 1,
+            "num_radial": 6,
+            "num_spherical": 7,
+            "num_conv_layers": 3,
+            "output_heads": {
+                "graph":{
+                    "num_sharedlayers": 5,
+                    "dim_sharedlayers": 64,
+                    "num_headlayers": 2,
+                    "dim_headlayers": [300, 267]
+                }
+            },
+            "task_weights": [1.0]
+        },
+        "Variables_of_interest": {
+            "input_node_features": [0],
+            "output_names": ["dipole_moment"],
+            "output_index": [0],
+            "output_dim": [1],
+            "type": ["graph"],
+            "denormalize_output": false
+        },
+        "Training": {
+            "num_epoch": 200,
+            "perc_train": 0.7,
+            "loss_function_type": "mae",
+            "batch_size": 128,
+            "continue": 0,
+            "startfrom": "existing_model",
+            "Optimizer": {
+                "type": "AdamW",
+                "learning_rate":  0.0010674712622659554
+            },
+            "ReduceLROnPlateau": {
+                "factor": 0.575324804925345,
+                "patience": 5,
+                "min_lr": 1e-6
+            },
+            "EarlyStopping": true,
+            "patience": 10
+        }
+    },
+    "Visualization": {
+        "plot_init_solution": true,
+        "plot_hist_solution": false,
+        "create_plots": true
+    }
+}
